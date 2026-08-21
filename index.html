@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helmet Detection System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Safety First</h1>
+            <p>Intelligent Helmet Detection System</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="upload-area">
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="upload-icon">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h3>Click or drag image to upload</h3>
+                    <p>Supports JPG, PNG</p>
+                </div>
+
+                <div class="preview-area hidden" id="preview-area">
+                    <img id="image-preview" src="" alt="Preview">
+                    <div class="btn-group">
+                        <button class="btn" id="analyze-btn">Analyze Image</button>
+                        <button class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading-state hidden" id="loading-state">
+                <div class="spinner"></div>
+                <p>Analyzing image for helmets...</p>
+            </div>
+
+            <div class="results-section hidden" id="results-section">
+                <h2>Analysis Results</h2>
+                <div class="results-grid">
+                    <div class="result-image-container">
+                        <img id="result-image" src="" alt="Detection Results">
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <a id="download-btn" class="btn" href="" download="annotated_image.jpg" target="_blank"
+                                style="text-decoration: none; display: inline-block;">Download Annotated Image</a>
+                        </div>
+                    </div>
+                    <div class="detections-list">
+                        <h3>Detections</h3>
+                        <ul id="detections-ul">
+                            <!-- Detections will be populated here -->
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn" id="new-scan-btn">New Scan</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
